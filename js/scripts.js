@@ -21,28 +21,33 @@ var akanArray = [
 ]
 
 //get user date input
-function getUserBirthday(date){
+function getUserDetails(){
+    var date = document.getElementById("dob").value;
+    var gender = document.getElementsByName("gender");
+
+    for(i = 0; i < gender.length; i++) { 
+        if(gender[i].checked) 
+        var myGenderValue = gender[i].value; 
+    } 
+    // alert(myGenderValue +" "+date);
 
 }
+
 
 //verify the date the user entered
 function verifyUserBirthday(){
 
 }
-
-//get user gender from the form
-function getUserGender(gender){
-
-}
 //finds the akan name that matches the day and gender
 function findUserAkanName(){
 
+    return akanName;
 }
 //prints user akan name to the DOM
-function printUserAkanName(){
+function printUserAkanName(akanName){
 
-}
-//clears the user input form
+}  
+//clears the user input form 
 function clearInput(){
 
 }
