@@ -1,4 +1,4 @@
-var akanObjects = [
+var akanArray = [
     {
         Sunday:"Kwasi",
         Monday:"Kwadwo",
