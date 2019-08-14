@@ -25,12 +25,12 @@
         <div class="date-form">
             <form>
                 <label for="dob">Your Birthday</label><br>
-                <input type="text" id="dob" name="dob" placeholder="ddmmYY"> <br>
+                <input type="text" id="dob" name="dob" placeholder="ddmmYY" value=""> <br>
                 <label for="gender">Select Gender</label><br>
                 <input type="radio" name="gender" value="male"> Male<br>
                 <input type="radio" name="gender" value="female"> Female<br>
-
-                <input type="submit" value="Submit">
+                <div id="alert" style="color: red"></div>
+                <input type="submit" value="Submit" onclick="getUserDetails()">
             </form>
         </div>
         <div class="output">
@@ -39,6 +39,7 @@
 
     </div>
 
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>
