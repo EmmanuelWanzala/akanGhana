@@ -1,0 +1,33 @@
+body {
+    background-color: #e9ecef;  
+}
+/* .introduction{
+    text-align: center;
+} */
+
+#welcome-message {
+    font-family: fantasy;
+    color: #FC8600;
+}
+
+#welcome-story {
+    color: #41709b;
+    /* color: #6e2c00; */
+    /* color: #1c2833; */
+}
+input{
+    widows: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom:10px ;
+    margin-top:20px ;
+}
+input[type=submit]  {
+    background-color: #FC8600;
+    color: #fff;
+    width: 100px;
+    float: right
+}
+form, .output{
+    text-align: center
+}
