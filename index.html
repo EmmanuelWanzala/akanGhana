@@ -9,32 +9,58 @@
 </head>
 
 <body>
-    <div class="introduction">
+    <div class="main">
         <div id="welcome-message">
-            <h1>Welcome to Birthday Akan</h1>
+            <h1 id="mheading">Let's find your Akan</h1>
 
         </div>
         <div id="welcome-story">
-            <h1>KEY NOTE</h1>
-            <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium numquam rerum,
-                totam vitae dolorem quaerat porro repellendus placeat. Voluptas natus, soluta quae dolore corrupti
-                quaerat iusto! Repellat facilis quos velit . Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt placeat quisquam quam ducimus quia recusandae cumque eum sapiente necessitatibus? Praesentium
-                harum optio esse nulla repudiandae ratione possimus magni, illo quidem.</h3>
+            <h1>Akan!</h1>
+            <h3 id="story">
+                The Akan people of Ghana and the Ivory Coast frequently name their children after the day of the week
+                they were born and the order in which they were born. These "day names" have further meanings concerning
+                the soul and character of the person. Middle names have considerably more variety and can refer to their
+                birth order, twin status, or an ancestor's middle name.
+            </h3>
+            <button id="learn-more"
+                onclick="location.href='https://ipfs.io/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Akan_names.html'"
+                type="button">
+                Learn More</button>
+
         </div>
         <div class="date-form">
-            <form>
-                <label for="dob">Your Birthday</label><br>
-                <input type="text" id="dob" name="dob" placeholder="ddmmYY" value=""> <br>
-                <label for="gender">Select Gender</label><br>
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
-                <div id="alert" style="color: red"></div>
-                <input type="submit" value="Submit" onclick="getUserDetails()">
+
+            <form name="myForm" onsubmit="return aggregateFunctions()">
+
+                <label class="label" id="birthday">Your Birthday</label><br>
+                <div id="result"></div><br>
+                <label>dd</label>
+                <input type="text" id="mdate" name="mdate" value="" placeholder="01">
+                <label>MM</label>
+                <input type="text" id="mmonth" name="mmonth" value="" placeholder="12">
+                <label>YYYY</label>
+                <input type="text" id="myear" name="myear" value="" placeholder="2001">
+                <div id="date"></div>
+
+                <div id="the-gender" class="label">Select Gender</div>
+
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female<br>
+
+
+                <input type="submit" value="SUBMIT">
+                <input type="submit" value="FIND ANOTHER" onClick="clearInput()">
+
             </form>
         </div>
+        <div class="imges">
+
+        </div>
         <div class="output">
-            <p id="myAkan">MY AKAN WILL APPEAR HERE </p>
+            <div id="myAkan">
+                <h1>Waiting to process your Akan</h1>
+            </div>
+            <div id="reason"></div>
         </div>
 
     </div>
