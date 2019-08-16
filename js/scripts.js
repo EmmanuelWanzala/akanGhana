@@ -250,5 +250,11 @@ function printUserAkanName() {
     dayOfTheWeek = akanDetails.dayOfTheWeek;
     mGender = akanDetails.mGender;
 
+    var doc = document.getElementsByTagName("BODY")[0];
+    doc.style.backgroundImage = "url('https://codemyui.com/wp-content/uploads/2016/07/flying-birds-animation-using-three_js-1.gif')";
+    doc.style.backgroundColor = "#f08a2d";
+    doc.style.backgroundRepeat = "no-repeat";
+    doc.style.backgroundSize = "cover";
+
 
 }
