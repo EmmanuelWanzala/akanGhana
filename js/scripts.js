@@ -227,7 +227,19 @@ function findUserAkanName() {
         }
         // alert(akanName);
 
+    } else {
+        alert("Error occured!");
     }
+
+    var importantDetails = {
+        akanName: akanName,
+        dayOfTheWeek: dayOfTheWeek,
+        mGender: mGender
+
+
+    }
+    return importantDetails;
+
 
 
 
