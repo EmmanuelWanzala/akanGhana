@@ -188,3 +188,18 @@ function verifyUserBirthday() {
     return dayOfWeek;
 
 }
+
+//finds the akan name that matches the day and gender
+function findUserAkanName() {
+    var userDetailsObject = getUserDetails();
+    mGender = userDetailsObject.myGenderValue;
+    userWeekDayIndex = verifyUserBirthday();
+
+
+    var dayOfTheWeek = weekDayArray[userWeekDayIndex];
+    // alert(dayOfTheWeek);
+
+
+
+  
+}
