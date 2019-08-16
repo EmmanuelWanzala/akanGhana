@@ -213,9 +213,23 @@ function findUserAkanName() {
             }
         }
         // alert(akanName);
+    } else if (mGender === "female") {
+        var akanArrayObject = akanArray[1];
+
+        for (var key in akanArrayObject) {
+            if (akanArrayObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    // alert(key);
+                    // alert(akanArrayObject[key]);
+                    akanName = akanArrayObject[key];
+                }
+            }
+        }
+        // alert(akanName);
+
     }
 
 
 
-  
+
 }
