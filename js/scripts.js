@@ -266,3 +266,8 @@ function printUserAkanName() {
 
 
 }
+
+//clears the user input form 
+function clearInput() {
+    window.location.reload();
+}
