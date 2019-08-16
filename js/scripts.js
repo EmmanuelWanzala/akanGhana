@@ -127,3 +127,13 @@ function validateForm() {
     return formValid;
 
 }
+
+
+//get user inputs from the user
+function getUserDetails() {
+    var mdate = parseInt(document.getElementById("mdate").value);
+    var mmonth = parseInt(document.getElementById("mmonth").value);
+    var myear = parseInt(document.getElementById("myear").value);
+    var gender = document.getElementsByName("gender");
+
+}
