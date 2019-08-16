@@ -10,7 +10,7 @@
 
 ## Description
 
-Ghana Birthday Akan is a web application that assits users to know there Akan names by entering their date of birth and their Gender. Akan names are names frequently used by the Akan people of Ghana to name their children after the day of the week they were born and the order in which they were born. These "day names" have further meanings concerning the soul and character of the person. Middle names have considerably more variety and can refer to their birth order, twin status, or an ancestor's middle name.
+Ghana Birthday Akan is a web application that assists users to know their Akan names by entering their date of birth and their Gender. Akan names are names frequently used by the Akan people of Ghana to name their children after the day of the week they were born and the order in which they were born. These "day names" have further meanings concerning the soul and character of the person. Middle names have considerably more variety and can refer to their birth order, twin status, or an ancestor's middle name.
 
 ## Working Live Application
 You can see the live working application through the this link. [Birthday Akan](https://atembamanu.github.io/akanGhana/index.html)
