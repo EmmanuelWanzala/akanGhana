@@ -1,53 +1,268 @@
 var akanArray = [
     {
-        Sunday:"Kwasi",
-        Monday:"Kwadwo",
-        Tuesday:"Kwabena",
-        Wednesday:"Kwaku",
-        Thurday:"Yaw",
-        Friday:"Kofi",
-        Saturday:"Kwame"
-    }, 
+        "Sunday": "Kwasi",
+        "Monday": "Kwadwo",
+        "Tuesday": "Kwabena",
+        "Wednesday": "Kwaku",
+        "Thurday": "Yaw",
+        "Friday": "Kofi",
+        "Saturday": "Kwame"
+    },
     {
-        Sunday:"Akosua",
-        Sunday:"Adwoa",
-        Monday:"Abenaa",
-        Tuesday:"Kwabena",
-        Wednesday:"Akua",
-        Thurday:"Yaa",
-        Friday:"Afua",
-        Saturday:"Ama"
+        "Sunday": "Akosua",
+        "Monday": "Adwoa",
+        "Tuesday": "Abenaa",
+        "Wednesday": "Akua",
+        "Thurday": "Yaa",
+        "Friday": "Afua",
+        "Saturday": "Ama"
+
     }
 ]
 
-//get user date input
-function getUserDetails(){
-    var date = document.getElementById("dob").value;
+var weekDayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
+var colorIndex = 0;
+
+function changeBackgroundColor() {
+    var doc = document.getElementsByTagName("BODY")[0];
+    var color = ["#49599a", "#883997", "#0069c0", "#75a478", "#00867d", "#087f23"];
+    doc.style.backgroundColor = color[colorIndex];
+    colorIndex = (colorIndex + 1) % color.length;
+
+}
+setInterval(changeBackgroundColor, 2000);
+
+
+function validateForm() {
     var gender = document.getElementsByName("gender");
+    var mdate = document.getElementById("mdate");
+    var mmonth = document.getElementById("mmonth");
+    var myear = document.getElementById("myear");
+    var formValid = false;
+    var i = 0;
+    document.getElementById("result").innerHTML = "";
+    if (mdate.value == "" || mdate.value == null) {
 
-    for(i = 0; i < gender.length; i++) { 
-        if(gender[i].checked) 
-        var myGenderValue = gender[i].value; 
-    } 
-    // alert(myGenderValue +" "+date);
+        document.getElementById("result").innerHTML += "Day is Required";
+        document.getElementById("result").style.color = 'red';
+
+        mdate.style.border = "2px solid red";
+        return false;
+    } else {
+        mdate.style.border = "";
+        if (!isNaN(mdate.value)) {
+            if (mdate.value <= 0 || mdate.value > 31) {
+                document.getElementById("result").innerHTML += "Invalid Day";
+                document.getElementById("result").style.color = 'red';
+
+                mdate.style.border = "2px solid red";
+                return false;
+            }
+        } else {
+            document.getElementById("result").innerHTML += "Day must be a number";
+            document.getElementById("result").style.color = 'red';
+
+            mdate.style.border = "2px solid red";
+            return false;
+        }
+    }
+    if (mmonth.value == "" || mmonth.value == null) {
+        document.getElementById("result").innerHTML += "Month is Required";
+        document.getElementById("result").style.color = 'red';
+        mmonth.style.border = "2px solid red";
+        return false;
+    } else {
+        mmonth.style.border = "";
+        if (!isNaN(mmonth.value)) {
+            if (mmonth.value <= 0 || mmonth.value > 12) {
+                document.getElementById("result").innerHTML += "Invalid Month";
+                document.getElementById("result").style.color = 'red';
+
+                mmonth.style.border = "2px solid red";
+                return false;
+            }
+        } else {
+            document.getElementById("result").innerHTML += "Month must be a number";
+            document.getElementById("result").style.color = 'red';
+
+            mmonth.style.border = "2px solid red";
+            return false;
+        }
+    }
+    if (myear.value == "" || myear.value == null) {
+        document.getElementById("result").innerHTML += "Year is Required";
+        document.getElementById("result").style.color = 'red';
+        myear.style.border = "2px solid red";
+        return false;
+    } else {
+        myear.style.border = "";
+        if (!isNaN(myear.value)) {
+            if (myear.value.length != 4) {
+                document.getElementById("result").innerHTML += "Invalid Year";
+                document.getElementById("result").style.color = 'red';
+
+                myear.style.border = "2px solid red";
+                return false;
+            }
+        } else {
+            document.getElementById("result").innerHTML += "Year must be a number";
+            document.getElementById("result").style.color = 'red';
+
+            myear.style.border = "2px solid red";
+            return false;
+        }
+    }
+
+    while (!formValid && i < gender.length) {
+        if (gender[i].checked)
+            formValid = true;
+        i++;
+    }
+    if (!formValid) {
+        document.getElementById("the-gender").style.color = 'red';
+        return false;
+    }
+
+
+    return formValid;
+
+}
+
+//get user inputs from the form
+function getUserDetails() {
+    var mdate = parseInt(document.getElementById("mdate").value);
+    var mmonth = parseInt(document.getElementById("mmonth").value);
+    var myear = parseInt(document.getElementById("myear").value);
+    var gender = document.getElementsByName("gender");
+    for (var i = 0; i < gender.length; i++) {
+        if (gender[i].checked)
+            var GenderValue = gender[i].value;
+    }
+
+    var userDetails = {
+        mdate: mdate,
+        mmonth: mmonth,
+        myear: myear,
+        myGenderValue: GenderValue,
+
+    }
+
+
+    return userDetails;
+}
+
+//run the functions simultaneously
+function aggregateFunctions() {
+    var formValid = validateForm();
+
+    if (!formValid) {
+        validateForm();
+        return false;
+    } {
+        getUserDetails();
+        verifyUserBirthday();
+        findUserAkanName();
+        printUserAkanName();
+        return false;
+
+    }
+}
+
+
+//verify the day of the users birthday
+function verifyUserBirthday() {
+    var userDetailsObject = getUserDetails();
+    mdate = userDetailsObject.mdate;
+    mmonth = userDetailsObject.mmonth;
+    myear = userDetailsObject.myear;
+
+    var a = Math.floor((14 - mmonth) / 12);
+    var y = myear - a;
+    var m = mmonth + 12 * a - 2;
+    dayOfWeek = (mdate + y + Math.floor(y / 4) - Math.floor(y / 100) +
+        Math.floor(myear / 400) + Math.floor((31 * m) / 12)) % 7;
+
+    return dayOfWeek;
 
 }
 
 
-//verify the date the user entered
-function verifyUserBirthday(){
-
-}
 //finds the akan name that matches the day and gender
-function findUserAkanName(){
+function findUserAkanName() {
+    var userDetailsObject = getUserDetails();
+    mGender = userDetailsObject.myGenderValue;
+    userWeekDayIndex = verifyUserBirthday();
 
-    return akanName;
+
+    var dayOfTheWeek = weekDayArray[userWeekDayIndex];
+    // alert(dayOfTheWeek);
+
+
+    if (mGender === "male") {
+
+        var akanArrayObject = akanArray[0];
+
+        for (var key in akanArrayObject) {
+            if (akanArrayObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    // alert(key);
+                    // alert(akanArrayObject[key]);
+                    akanName = akanArrayObject[key];
+                }
+            }
+        }
+        // alert(akanName);
+    } else if (mGender === "female") {
+        var akanArrayObject = akanArray[1];
+
+        for (var key in akanArrayObject) {
+            if (akanArrayObject.hasOwnProperty(key)) {
+                if (key === dayOfTheWeek) {
+                    // alert(key);
+                    // alert(akanArrayObject[key]);
+                    akanName = akanArrayObject[key];
+                }
+            }
+        }
+        // alert(akanName);
+
+    } else {
+        alert("Error occured!");
+    }
+
+    var importantDetails = {
+        akanName: akanName,
+        dayOfTheWeek: dayOfTheWeek,
+        mGender: mGender
+
+
+    }
+    return importantDetails;
 }
+
+
 //prints user akan name to the DOM
-function printUserAkanName(akanName){
+function printUserAkanName() {
+    clearInterval(changeBackgroundColor);
+    var akanDetails = findUserAkanName();
+    akanName = akanDetails.akanName;
+    dayOfTheWeek = akanDetails.dayOfTheWeek;
+    mGender = akanDetails.mGender;
 
-}  
+    var doc = document.getElementsByTagName("BODY")[0];
+    doc.style.backgroundImage = "url('https://codemyui.com/wp-content/uploads/2016/07/flying-birds-animation-using-three_js-1.gif')";
+    doc.style.backgroundColor = "#f08a2d";
+    doc.style.backgroundRepeat = "no-repeat";
+    doc.style.backgroundSize = "cover";
+    document.getElementById("mheading").innerHTML = "Congratulations!";
+    document.getElementById("myAkan").innerHTML = "Hurray! We found it.Your Akan name is  " + akanName;
+    document.getElementById("reason").innerHTML = 'Since, You are a ' + mGender + ' born on ' + dayOfTheWeek;
+    document.getElementById("myAkan").style.textDecoration = "underline overline";
+    document.getElementById("myAkan").style.color = '#6e2c00';
+    document.getElementById("myAkan").style.fontSize = '45px';
+}
+
 //clears the user input form 
-function clearInput(){
-
+function clearInput() {
+    window.location.reload();
 }
