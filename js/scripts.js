@@ -240,8 +240,15 @@ function findUserAkanName() {
     }
     return importantDetails;
 
+}
 
-
+//prints user akan name to the DOM
+function printUserAkanName() {
+    clearInterval(changeBackgroundColor);
+    var akanDetails = findUserAkanName();
+    akanName = akanDetails.akanName;
+    dayOfTheWeek = akanDetails.dayOfTheWeek;
+    mGender = akanDetails.mGender;
 
 
 }
