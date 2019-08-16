@@ -19,3 +19,6 @@ var akanArray = [
 
     }
 ]
+
+var weekDayArray = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurday", "Friday", "Saturday"];
+var colorIndex = 0;
