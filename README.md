@@ -1,4 +1,4 @@
-# Ghana Birthday Akan
+# BirthdayAkan
 
 ### Image before user submits DOB and Gender
 ![Alt text](images/first-page.png?raw=true "Image Before Entering Details")
@@ -11,6 +11,30 @@
 ## Description
 
 Ghana Birthday Akan is a web application that assists users to know their Akan names by entering their date of birth and their Gender. Akan names are names frequently used by the Akan people of Ghana to name their children after the day of the week they were born and the order in which they were born. These "day names" have further meanings concerning the soul and character of the person. Middle names have considerably more variety and can refer to their birth order, twin status, or an ancestor's middle name.
+## Versioning
+
+ BirthdayAkan-V1.0 
+
+## Author
+
+* [**atembamanu**](https://github.com/atembamanu)
+
+## Features
+
+
+As a user of the web application you will be able to:
+
+1. Read an introductory message about the Akan naming idiology.
+2. Enter you your birthday: day, month and year.
+3. Select your gender from the radio button choices.
+4. Click submit button to allow the application to process your Akan.
+5. See Your Akan Name and congratulatory message.
+6. Click on find again button and enter other details to view akan name.
+
+## Behaviour Driven Development (BDD)
+|Behaviour 	           |    Input 	                 |       Output          |
+|----------------------------------------------|:-----------------------------------:|-----------------------------:|       
+|Page loads	                           |   USer clicks any link in navbar                            |       Respective content is displayed  |                        |
 
 ## Working Live Application
 You can see the live working application through the this link. [Birthday Akan](https://atembamanu.github.io/akanGhana/index.html)
@@ -19,8 +43,15 @@ You can see the live working application through the this link. [Birthday Akan](
 
 It is easy to get started with  Ghana Birthday Akan web application.
 * Copy the repository url on the top right marked with green.
-* use **git clone** command to get the project to your local computer.
-* now open the directory created with your favorite IDE. if Atom just type **.atom** if VSCode type **.code** . This will lauch the editor with the project setup, Now feel free to hack around the project.
+* use **git clone** the url to get the project to your local computer.
+
+
+    * **git clone https://github.com/atembamanu/akanGhana.git**
+*   The repo comes in a zipped or compressed format. Extract to your prefered location and open it.
+
+* now open the directory created with your favorite IDE. if Atom just type **.atom** if VSCode type **.code** . This will lauch the editor with the project setup, 
+
+* Now feel free to hack around the project.
 
 
 ## Known Bugs
