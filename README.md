@@ -34,7 +34,7 @@ As a user of the web application you will be able to:
 ## Behaviour Driven Development (BDD)
 |Behaviour 	           |    Input 	                 |       Output          |
 |----------------------------------------------|:-----------------------------------:|-----------------------------:|       
-|Page loads	                           |   USer clicks any link in navbar                            |       Respective content is displayed  |                        |
+|Page loads and  a form displayed                         |   User enters form details  and selects from the select radios   and clicks submit                   |     |   Ther akan name                     |
 
 ## Working Live Application
 You can see the live working application through the this link. [Birthday Akan](https://atembamanu.github.io/akanGhana/index.html)
